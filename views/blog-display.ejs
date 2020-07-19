@@ -80,7 +80,7 @@
                     <% if(!user){ %>
                     <li><a href="/auth/login" class="grey-text text-darken-4">Login</a></li>
                     <%} else{%>
-                      <li><a class="dropdown-trigger" data-target="dropdown1"><img src="<%=user.thumbnail%>" class="circle " ><i class="material-icons right">arrow_drop_down</i></a></li>
+                      <li><a  class="dropdown-trigger" data-target="dropdown1" style="padding-top: 10px;"><img src="<%=user.thumbnail%>" class="circle " style="height:35px; width:35px;" ><i class="material-icons right">arrow_drop_down</i></a></li>
                       <%}%>
                   </ul>
                
@@ -101,27 +101,10 @@
                         <li class="divider"></li>
                         <li><a href="/auth/logout">Logout</a></li>
                         <%}%>
-        </ul>
-              
-            
+             </ul>
     <!--end-->
 
     <!--Header-->
-    <div class="fixed-action-btn" style="left:79%;right: 21%; bottom: 9%;">
-        <a  class="btn-floating btn-large" style="background-color:rgba(212, 211, 211, 0.74)">
-          <i class="large material-icons grey-text text-darken-3">games</i>
-        </a>
-        <ul>
-          <li><a href="/upload/write" class="btn-floating  grey lighten-3"><i class="material-icons teal">mode_edit</i></a></li>
-          <li><a href="#like-button" class="btn-floating  grey lighten-3"><i class="material-icons teal">  thumb_up_alt</i></a></li>
-          <li><a  class="btn-floating  grey lighten-3"><i class="material-icons teal">notifications_none</i></a></li>
-          <li><a href="#modal1"  class="btn-floating  modal-trigger   grey lighten-3"><i class="material-icons teal">comment</i></a></li>
-          <li><a  class="btn-floating  grey lighten-3"><i class="material-icons teal">share</i></a></li>
-          <li><a href="/explore#search"  class="btn-floating grey lighten-3"><i class="material-icons teal">search</i></a></li>
-          <li><a href="/explore#search"  class="btn-floating grey lighten-3"><i class="material-icons teal">favorite</i></a></li>
-          
-        </ul>
-      </div> 
     <section class="section container" id="header">
       <h2 class="grey-text text-darken-3 center" style="font-family: 'Vidaloka', serif;"><%= typeof(userblog)!='undefined'? userblog.title:''%></h2>
      
@@ -171,10 +154,7 @@
           <div class="row center">
               <div class="col s12" style="height:7vh;"></div>
                   <br>
-          
           </div>
-
-
         </div>
 
         <!--Article-->
@@ -184,7 +164,6 @@
           <p><%=userblog.blog%></p>
         </div>
         <br>
-       
       
         <div id="tags">
             <%userblog.tags.forEach((tag)=>{%>
@@ -194,33 +173,31 @@
           <%})%>
           <div class=" secondary-content">
           <span id="number-of-likes" class="badge grey-text text-lighten-4 grey darken-3" style="position:relative;left:-1.8rem; top:-0.6rem; z-index: 9;"><%=userblog.likes.length%></span>
-<%if(typeof(user)!='undefined'){%>
-  <%if(favorites.some((favorite)=>{return favorite==userblog.id})){%>
-  <a   id="favorite-button" class="disabled btn-floating grey lighten-3"><i class="material-icons grey lighten-3 grey-text text-darken-3 ">favorite</i></a> 
-  
-  <%} else{%>
-  <a id="favorite-button" class="btn-floating grey lighten-3"><i class="material-icons grey lighten-3 grey-text text-darken-3 ">favorite</i></a> 
-  <%}%>
-  <%if(likes.some((like)=>{return like==user.googleId})){%>
-       
-      <a id="like-button" class="disabled  btn-floating  grey lighten-3"><i class="grey lighten-3 grey-text text-darken-3  material-icons ">  thumb_up_alt</i></a>
-     
-      <%} else{%>
-    
+            <%if(typeof(user)!='undefined'){%>
+              <%if(favorites.some((favorite)=>{return favorite==userblog.id})){%>
+              <a   id="favorite-button" class="disabled btn-floating grey lighten-3"><i class="material-icons grey lighten-3 grey-text text-darken-3 ">favorite</i></a> 
+              
+              <%} else{%>
+              <a id="favorite-button" class="btn-floating grey lighten-3"><i class="material-icons grey lighten-3 grey-text text-darken-3 ">favorite</i></a> 
+              <%}%>
+              <%if(likes.some((like)=>{return like==user.googleId})){%>
+                  
+                  <a id="like-button" class="disabled  btn-floating  grey lighten-3"><i class="grey lighten-3 grey-text text-darken-3  material-icons ">  thumb_up_alt</i></a>
+                
+                  <%} else{%>
+                
+                        
+                
+                  <a id="like-button" class="btn-floating  grey lighten-3"><i class="grey lighten-3 grey-text text-darken-3  material-icons ">  thumb_up_alt</i></a>
+            <%}%>
+            <%}else{%>
+              <span class="grey-text lighten-1" style="font-size:0.9rem;">Login to like or save this post as favorite</span>
+              <a id="favorite-button" class="disabled  btn-floating grey lighten-3"><i class="material-icons grey lighten-3 grey-text text-darken-3 ">favorite</i></a>
+              <a id="like-button" class="disabled  btn-floating  grey lighten-3"><i class="grey lighten-3 grey-text text-darken-3  material-icons ">  thumb_up_alt</i></a>
             
-     
-      <a id="like-button" class="btn-floating  grey lighten-3"><i class="grey lighten-3 grey-text text-darken-3  material-icons ">  thumb_up_alt</i></a>
-<%}%>
-<%}else{%>
-  <span class="grey-text lighten-1" style="font-size:0.9rem;">Login to like or save this post as favorite</span>
-  <a id="favorite-button" class="disabled  btn-floating grey lighten-3"><i class="material-icons grey lighten-3 grey-text text-darken-3 ">favorite</i></a>
-  <a id="like-button" class="disabled  btn-floating  grey lighten-3"><i class="grey lighten-3 grey-text text-darken-3  material-icons ">  thumb_up_alt</i></a>
- 
-  <%}%>
-</div>      
-
+              <%}%>
+            </div>
         </div>
-      
         <div class="center" style="font-size:6rem;">.     .    .</div>
         <br>
         <div id="about-the-author" style="max-height: max-content; padding-top: 1rem;">
@@ -236,12 +213,7 @@
             </div>
           </div>
         </div>
-
-
         </div>
-
-
-
       </div>
       <br>
       <div class="divider"></div>
@@ -253,52 +225,43 @@
           <div class="row">
               <%for(i=0;i<3;i++){var blog=blogs[i];%>
                 <%if(typeof(blog)!='undefined'){%>
-                          <div class="col s12 m4" id="blog">
-                           
-                                  <div class="card  hoverable small">
-                                      <div class="card-image">
-                                          <a href="/display/display-blog/<%=blog._id%>" class="blogTrigger  ">
-                                          <img src="/uploads/<%=blog.bigPic.filename%>" class="responsive-img" style="opacity:0.4;">
-                                          <span class="card-title">
-                                              <h5 class="truncate black-text"  style="font-weight:bold;">
-                                                 
-                                             <%=blog.title%>
-                                              
-                                              </h5 >
-                                                 
-                                              </span>
-                                            </a>
-                                      </div>
-                                     
-                                      <div class="card-content">
-                                          
-                                              <div class=" valign-wrapper" id="author">
-                                                
-                                                  
-                                                          <ul class="collection" style="border:none; margin-bottom: 0;">
-                                                              <li class="collection-item avatar">
-                                                                  <img src="<%=blog.profilepic%>" class="circle ">
-                                                         <p><span  class="title grey-text text-darken-3"><%=blog.author%></span> </p> 
-                                                          <p><span class="grey-text text-lighten-1"><%=blog.date%></span> </p>
-                                                             
-                                                        </li>
-                                                        </ul>
-                                                   
-                                                  </div>
-                                               
-                                      </div>
-                                  </div>
-                              </div>
-                              <%}%>
-                              <%}%>
-                              
-         
- </div>
- <%} else{%>
-        <div class="grey-text text-darken-1 container"><h6>No more posts to show...</h6></div>
-        <%}%>
-   
-       
+                    <div class="col s12 m4" id="blog">
+                      
+                        <div class="card  hoverable small">
+                            <div class="card-image">
+                                <a href="/display/display-blog/<%=blog._id%>" class="blogTrigger  ">
+                                <img src="/uploads/<%=blog.bigPic.filename%>" class="responsive-img" style="opacity:0.4;">
+                                <span class="card-title">
+                                    <h5 class="truncate black-text"  style="font-weight:bold;">
+                                        
+                                    <%=blog.title%>
+                                    
+                                    </h5 >
+                                        
+                                    </span>
+                                  </a>
+                            </div>
+                            
+                            <div class="card-content">    
+                            <div class=" valign-wrapper" id="author">
+                                        <ul class="collection" style="border:none; margin-bottom: 0;">
+                                            <li class="collection-item avatar">
+                                                <img src="<%=blog.profilepic%>" class="circle ">
+                                        <p><span  class="title grey-text text-darken-3"><%=blog.author%></span> </p> 
+                                        <p><span class="grey-text text-lighten-1"><%=blog.date%></span> </p>
+                                            
+                                      </li>
+                                      </ul>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                        <%}%>
+                        <%}%>
+                </div>
+                <%} else{%>
+                        <div class="grey-text text-darken-1 container"><h6>No more posts to show...</h6></div>
+                        <%}%>    
       </section>
 
       <div class="divider"></div>
@@ -368,7 +331,7 @@
 
     <!--comments-->
     <div class="row container" id="comments">
-      <%if(typeof(responses)!='undefined'){%>
+      <%if(typeof(responses)!='undefined'||!responses.length){%>
         <%responses.forEach((response)=>{%>
       <div class="col s12">
           <div class="card-panel white">
@@ -422,11 +385,6 @@
     </div>        
     </section>
 
-
-
-
-
-
     <!--Footer-->
     <footer class="page-footer  grey  darken-4 " style="margin-top:4rem;">
         <div class="container">
@@ -475,17 +433,13 @@
          
             let xml0=new XMLHttpRequest();
             xml0.open("GET","http://localhost:3000/display/favorite/?blogid="+document.getElementById('blogidCom').value,true);  ///just a shortcut with the routes
-xml0.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-xml0.onreadystatechange=()=>{
-  if(xml0.readyState==4&&xml0.status==200){
-   }
-}
- xml0.send();
-          }
-
-
-
-
+            xml0.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xml0.onreadystatechange=()=>{
+              if(xml0.readyState==4&&xml0.status==200){
+              }
+            }
+            xml0.send();
+           }
           let like_button=document.getElementById('like-button');
           like_button.onclick=()=>{
             let like_numbers=document.getElementById('number-of-likes');
@@ -503,15 +457,15 @@ xml0.onreadystatechange=()=>{
          
             let xml1=new XMLHttpRequest();
             xml1.open("GET","http://localhost:3000/display/like/?blogid="+document.getElementById('blogidCom').value,true);  ///just a shortcut with the routes
-xml1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-xml1.onreadystatechange=()=>{
-  if(xml1.readyState==4&&xml1.status==200){
-   }
-}
- xml1.send();
+            xml1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xml1.onreadystatechange=()=>{
+              if(xml1.readyState==4&&xml1.status==200){
+              }
+            }
+            xml1.send();
           }
 
- let follow_button=document.getElementById('follow-req');
+          let follow_button=document.getElementById('follow-req');
           follow_button.onclick=()=>{
            // console.log(follow_button.innerHTML)
             let author_email=document.getElementById('author-email').innerHTML;
@@ -522,73 +476,58 @@ xml1.onreadystatechange=()=>{
             M.toast({html: 'You have unfollowed this author!'});
                     let xml3=new XMLHttpRequest();
             xml3.open("GET","http://localhost:3000/display/unfollow/?email="+author_email,true);  
-xml3.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-xml3.onreadystatechange=()=>{
-  if(xml3.readyState==4&&xml3.status==200){
-    return;
-   }
-}
- xml3.send();
-return;
+            xml3.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xml3.onreadystatechange=()=>{
+              if(xml3.readyState==4&&xml3.status==200){
+                return;
+              }
             }
-          
-            
+            xml3.send();
+            return;
+             }
+     
             follow_button.innerHTML='Following';
             M.toast({html: 'You are following this author!'});
-            
-         
+
             let xml2=new XMLHttpRequest();
             xml2.open("GET","http://localhost:3000/display/follow/?email="+author_email,true);  
-xml2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-xml2.onreadystatechange=()=>{
-  if(xml2.readyState==4&&xml2.status==200){
-   }
-}
- xml2.send();
-
-
-
+          xml2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xml2.onreadystatechange=()=>{
+            if(xml2.readyState==4&&xml2.status==200){
+            }
+          }
+          xml2.send();
       }
-
-
-
-
-
-
-
-        var post_response=document.getElementById('post-response');
+        let post_response=document.getElementById('post-response');
         post_response.onclick=()=>{
           
-          var xml=new XMLHttpRequest();
+          let xml=new XMLHttpRequest();
           
-xml.open("GET","http://localhost:3000/display/post-comment/?blogid="+document.getElementById('blogidCom').value+"&responseText="+document.getElementById('response-text').value+"&username="+document.getElementById('usernameCom').value+"&date="+document.getElementById('dateCom').value+"&profilepiclink="+document.getElementById('profilepicCom').value,true);  ///try to change this to post
-xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-xml.onreadystatechange=()=>{
-  if(xml.readyState==4&&xml.status==200){
-    let responseResult=JSON.parse(xml.responseText)
-    var responseHtml=` <div class="col s12">
-          <div class="card-panel white">
-              <ul class="collection" style="border:none;">
-                  <li class="collection-item avatar">
-              <img class="responsive-img circle" src="${responseResult.profilepic}">
-              <span class="title">${responseResult.writer}</span>
-              <p><span class="grey-text text-lighten-1">${(new Date()).toDateString()}</span> <span><a href="#" class="grey-text text-darken-2 right"> <i class="material-icons" ">
-                  thumb_up_alt
-                  </i> </a></span></p>
-            </li>
-            </ul>
-              <span class="grey-text text-darken-2">${responseResult.content} </span>
-            </div>
-      </div>`
-      document.getElementById('comments').innerHTML=responseHtml+ document.getElementById('comments').innerHTML;
-   window.location.href='#comments';
-    // console.log("bye")
-  }
+        xml.open("GET","http://localhost:3000/display/post-comment/?blogid="+document.getElementById('blogidCom').value+"&responseText="+document.getElementById('response-text').value+"&username="+document.getElementById('usernameCom').value+"&date="+document.getElementById('dateCom').value+"&profilepiclink="+document.getElementById('profilepicCom').value,true);  ///try to change this to post
+        xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xml.onreadystatechange=()=>{
+          if(xml.readyState==4&&xml.status==200){
+            let responseResult=JSON.parse(xml.responseText)
+            var responseHtml=` <div class="col s12">
+                  <div class="card-panel white">
+                      <ul class="collection" style="border:none;">
+                          <li class="collection-item avatar">
+                      <img class="responsive-img circle" src="${responseResult.profilepic}">
+                      <span class="title">${responseResult.writer}</span>
+                      <p><span class="grey-text text-lighten-1">${(new Date()).toDateString()}</span> <span><a href="#" class="grey-text text-darken-2 right"> <i class="material-icons" ">
+                          thumb_up_alt
+                          </i> </a></span></p>
+                    </li>
+                    </ul>
+                      <span class="grey-text text-darken-2">${responseResult.content} </span>
+                    </div>
+              </div>`
+              document.getElementById('comments').innerHTML=responseHtml+ document.getElementById('comments').innerHTML;
+          window.location.href='#comments';
+          }
 
-}
- xml.send();
-      
-
+        }
+        xml.send();
         }
       }
 
@@ -597,8 +536,6 @@ xml.onreadystatechange=()=>{
 
     <!--script-->
     <script>
-     
-
 
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.pushpin');

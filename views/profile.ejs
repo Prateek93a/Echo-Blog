@@ -38,22 +38,20 @@
   
                 <li><a href="/explore"class="grey-text text-darken-4" >Explore</a></li>
                 
-                <li><a  class="dropdown-trigger" data-target="dropdown1" style="padding-top: 10px;"><img src="<%=user.thumbnail%>" class="circle " style="height:35px; width:35px;" ><i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a  class="dropdown-trigger" data-target="dropdown1" style="padding-top: 10px;"><img  src="<%=user.thumbnail%>" class="circle" style="height:35px; width:35px;" ><i class="material-icons right">arrow_drop_down</i></a></li>
               </ul>
            
            </div>
            
           </nav>
           <ul class="sidenav" id="mobile-links">
-             
-                
             
-                <li><astyle="padding-top: 10px;"><img src="<%=user.thumbnail%>" class="circle " style="height:35px; width:35px;" ></a></li>
-                
-                <li><a href="/explore"class="grey-text text-darken-4" >Explore</a></li>
+          <li><a style="padding-top: 10px;"><img src="<%=user.thumbnail%>" class="circle " style="height:35px; width:35px;" ></a></li>
+          
+          <li><a href="/explore"class="grey-text text-darken-4" >Explore</a></li>
       <li><a href="/upload/write">Write</a></li>
       <li class="divider"></li>
-      <li><a href="/auth/logout">Logout</a></li>
+      <li><a href="/auth/logout">Logout</a></li>http://localhost:3000/explore
     </ul>
           
         
@@ -62,10 +60,7 @@
 <!--profile photo and background photo-->
 <section class="section " style=" height:50vh; ">
     <div style="height:100%; background: url('./img/beach.jpg') no-repeat center;background-size: cover; position: relative;">
-      
           <img src="<%=user.thumbnail%>" class="materialboxed" style="height:100px;width:100px; border-radius:50%;  position:absolute;bottom: -10%;left:15%;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-     
-    
     </div>
 </section>
    
@@ -109,28 +104,15 @@
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
     </div>
   </div>
-  <!---->
-                <p id="profession"> <span><i class="material-icons">person</i></span>
-                    <%=user.profession%></p>
-                <p id="location"> <span><i class="material-icons">place</i></span><%=user.location%></p>
-                <p id="description"> <span><i class="material-icons">description</i></span><%=user.description%></p>
-                <p id="googleid" style="display:none;"><%=user.googleId%></p>
-            </div>
+            <p id="profession"> <span><i class="material-icons">person</i></span>
+                <%=user.profession || 'No profession added'%></p>
+            <p id="location"> <span><i class="material-icons">place</i></span><%=user.location || 'No location added'%></p>
+            <p id="description"> <span><i class="material-icons">description</i></span><%=user.description || 'No description added'%></p>
+            <p id="googleid" style="display:none;"><%=user.googleId%></p>
         </div>
+    </div>
 
                 <div  class="col s12 m8 card-panel white" style="min-height:40vh;padding:1% 2% 4% 2%;" > 
-                                             
-<div class="fixed-action-btn" style="left:75%;right: 25%; bottom: 9%;">
-        <a  class="btn-floating btn-large" style="background-color:rgba(212, 211, 211, 0.74)">
-          <i class="large material-icons grey-text text-lighten-5 teal darken-3">games</i>
-        </a>
-        <ul>
-          <li><a href="/upload/write" class="btn-floating  grey lighten-3"><i class="material-icons teal">mode_edit</i></a></li>
-          <li><a class="btn-floating  grey lighten-3"><i class="material-icons teal">format_quote</i></a></li>
-          <li><a href="/explore#search"  class="btn-floating grey lighten-3"><i class="material-icons teal">search</i></a></li>
-          <li><a  class="btn-floating  grey lighten-3"><i class="material-icons teal">attach_file</i></a></li>
-        </ul>
-      </div>  
                     <div class="" style="min-height:50vh;">     
                         <ul class="tabs " style="font-size: 2rem; font-weight: bold; box-shadow:0px 2px 0px rgb(211, 210, 210) ;">
                           <li class="tab col s4 center" >
@@ -145,9 +127,7 @@
                       </ul>
                       <div class="col s12" id="works" style="padding:8px 2px;" >
                     
-                          <!--  WORK UPON THIS SECTION, ITS NOT A GOOD SCALABLE TECHNIQUE
-                       -->
-                      <%if(typeof(userblogs)=='undefined'){%>
+                      <%if(typeof(userblogs)=='undefined' || !userblogs.length){%>
                         <div class="center" style="padding-top:10%;">
                                           <img src="/img/emp-box.png" alt="" style="height:100px;">
                                           <p class="grey-text" style="padding-top:2%;">Oops! Looks like your box is empty. Fill it with your amazing blogs!</p>
@@ -181,7 +161,11 @@
                       <%})}%>
                       </div>
                       <div class="col s12" id="favorites">
-                              <!--full width of its parent tag-->
+                                <!--full width of its parent tag-->
+                                <div class="center" style="padding-top:10%;">
+                                  <img src="/img/emp-list.png" alt="">
+                                  <p class="grey-text " style="padding-top:2%;">No favourites yet? You might wanna keep searching.</p>
+                              </div>
                               
                           </div>
                           <div class="col s12" id="subscriptions">
@@ -189,15 +173,11 @@
                        
                                 <ul class="collection" style="border:none;" id="subscription-collection" >
                                   
-                           <!--        <li class="collection-item avatar">
+                                  <li class="collection-item avatar">
                                       <img src="/img/login-photo.jpg" alt="" class="circle">
                                       <span class="title">Title</span>
-                                      <p>First Line <br>
-                                         Second Line
-                                      </p>
-                                      <a href="#!" class="secondary-content waves-effect " style="border:1px teal solid; padding:3px 6px;border-radius:5px;">Follow</a>
                                     </li>
-                              --> 
+                              
                                   </ul>
                             </div>
           
@@ -238,14 +218,14 @@ window.onload=()=>{
           subscriptiondivs.forEach((sub)=>{
            // console.log(sub)
             subscription_list_html.innerHTML+=` <li class="collection-item avatar">
-                                      <img src=${sub.thumbnail} alt="" class="circle">
-                                      <span class="title">${sub.username}</span>
-                                      <p>${sub.followers.length} Followers <br>
-                                         
-                                      </p>
-                                    
-                                      </li> 
-                                       <div class='divider'></div> `
+            <img src=${sub.thumbnail} alt="" class="circle">
+            <span class="title">${sub.username}</span>
+            <p>${sub.followers.length} Followers <br>
+                
+            </p>
+          
+            </li> 
+              <div class='divider'></div> `
       
           })
 
@@ -304,8 +284,7 @@ let favoriteli=document.getElementById('favoritesli');
                           </div>
                         </div>
                       </div>
-                      <div class="divider"></div>
-                      `
+                      <div class="divider"></div>    `
       
           })
 
@@ -360,7 +339,6 @@ let worksli=document.getElementById('worksli');
                       </div>
                       <div class="divider"></div>
                       `
-      
           })
 
 
