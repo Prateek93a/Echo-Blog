@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // connect to mongodb
-mongoose.connect(keys.mongodb.dbURI,{useNewUrlParser: true},() => console.log("connected"));
+mongoose.connect(keys.mongodb.dbURI,{useNewUrlParser: true, useUnifiedTopology: true},() => console.log("connected"));
 mongoose.Promise=global.Promise;
 
 app.use("/auth",routes);
