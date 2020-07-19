@@ -3,8 +3,6 @@ const Userblog = require('../models/user-blog');
 const UserProfile = require('../models/user-profile');
 const Userblogresponses = require('../models/user-blog-responses');
 
-
-
 const authCheck=(req,res,next)=>{
     //for checking if user has loggedin or not
     if(!req.user){
@@ -14,8 +12,6 @@ const authCheck=(req,res,next)=>{
         next();
     }
 };
-
-
 router.get('/display-blog/:id',(req,res)=>{
    
     Userblog.findOne({_id:req.params.id}).then((blog)=>{
@@ -53,7 +49,6 @@ router.get('/post-comment',authCheck,(req,res)=>{
         res.send(JSON.stringify(response));
     })
 })
-
 
 router.get('/like',authCheck,(req,res)=>{
     

@@ -26,8 +26,6 @@ function checkFileType(file,cb){
     }
 }
 
-
-
 //init upload
 const upload=multer({
     storage:storage,
@@ -51,9 +49,6 @@ const authCheck=(req,res,next)=>{
 router.get("/write",authCheck,(req,res)=>{
     res.render("write.ejs", { user: req.user });
 });
-
-
-
 
 router.post('/upload-blog',authCheck,(req,res)=>{
     // res.send("test")
@@ -79,14 +74,7 @@ router.post('/upload-blog',authCheck,(req,res)=>{
                 req.body.tags.forEach((tag)=>{
                     userblog.tags.push(tag);
                 })
-
-               
-
-              
                 userblog.save().then((userblog)=>{
-                    // console.log(userblog);
-                    // console.log("Process Complete!");
-                  
                     res.redirect("/display/display-blog/"+userblog.id);
                 })
         
