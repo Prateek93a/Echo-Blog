@@ -1,0 +1,151 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Ultra" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Katibeh" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+     <!--Nav Bar-->
+     <nav class="grey-text text-darken-4 hoverable pushpin navbar-fixed" style="z-index: 10;">
+            <div class="nav-wrapper container ">
+                                 
+                    <a href="/" class="brand-logo black-text text-darken-4 " style="font-family: 'Monoton', cursive; ">Echo <span class="grey-text text-lighten-3" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" >|</span><span class=" grey-text text-darken-3 right" style="font-family: 'Katibeh', cursive;padding-top: 0.4rem; ">  Blogs</span></a>
+                    <a href="" class="sidenav-trigger" data-target="mobile-links" >
+                      <i class="material-icons grey-text text-darken-3" style="font-size:34px;">menu</i>
+                  </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down grey-text text-darken-4">
+                <li><a href="/" class="grey-text text-darken-4">Home</a></li>
+                <li><a href="/explore"class="grey-text text-darken-4" >Explore</a></li>
+                
+                <li   class="active"><a href="/auth/login" class="grey-text text-darken-4">Login</a></li>
+              </ul>
+           
+           </div>
+           
+          </nav>
+          <ul class="sidenav" id="mobile-links">
+              <li><a href="/" class="grey-text text-darken-4">Home</a></li>
+              <li><a href="/explore"class="grey-text text-darken-4" >Explore</a></li>
+              
+              <li   class="active"><a href="/auth/login" class="grey-text text-darken-4">Login</a></li>
+    </ul>
+          
+        
+<!--end-->
+
+
+
+    <!--login page-->
+    <section class="center " style="min-height:100vh; overflow: hidden; background: url('/img/login-photo.jpg') no-repeat center; background-size: cover;" >
+   
+        <div class="container center">  
+                  <!--login-->
+                  <div class="row">
+        <div class="col  s12 m6 offset-m4  l6 center offset-l4" id="login" style="padding-top: 20vh;">
+  
+
+                <div class="container card-panel center center grey lighten-5" style=" padding: 1.5rem;">
+                    <h5 class="grey-text text-darken-2" style="font-weight:bold;">Log into your account</h5>
+                    <br><br><br>
+                        <form class="col s12 ">
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="email" type="email" class="validate" required>
+                              <label for="email">Email</label>
+                              <span class="helper-text" data-error="Invalid Email" data-success=""></span>
+                            </div>
+                            <div class="input-field col s12">
+                                    <input id="password" type="password" required>
+                                    <label for="password">Password</label>
+                                    
+                                  </div>
+                                  <div class="input-field col s12">
+                                       
+                                        <a href="" class="btn waves-effect" style="background-color:transparent;color:teal;border:1px teal solid; border-radius:5px;">Login</a>
+                                        
+                                      </div>
+                                    
+                             
+                                     
+
+                          </div>
+                        </form>
+                            
+                        <a href="/auth/google" class="white-text fa-2x links red btn" style="border-radius:3%;"><span style="text-decoration:none; font-size: 1.2rem;">Sign in using Google</span><i class="fab fa-google-plus right"></i></a>
+                      </div>
+                    </div>
+            
+            </div>
+    </div>
+
+
+</section>
+
+
+
+    <!--Footer-->
+    <footer class="page-footer  grey  darken-4 ">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12 m6">
+                  <h5 class="white-text">Echo Blogs</h5>
+                  <p class="grey-text text-lighten-1 left">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima consectetur maiores repellat magni fuga aspernatur! Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+                <div class="col l4 offset-l2 s12 m6">
+                  <h5 class="white-text">Connect With Us</h5>
+                  <ul >
+                    <li><a class="grey-text text-lighten-1" href="#!">Facebook</a></li>
+                    <li><a class="grey-text text-lighten-1" href="#!">Twitter</a></li>
+                    <li><a class="grey-text text-lighten-1" href="#!">Linkedin</a></li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright black">
+              <div class="container center">
+              © 2019 Echo Inc | All rights reserved
+              
+              </div>
+            </div>
+          </footer>
+          <!--End-->
+  <!--script-->
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.pushpin');
+          var instances = M.Pushpin.init(elems,{});
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, {});
+        
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, {});
+       
+      
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.tooltipped');
+        var instances = M.Tooltip.init(elems, {});
+      });
+      </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#" id="click">hi</a>
+    <script>
+    window.onload=()=>{
+        var sendComment={
+    "blogid": "5c8444785a10291c78bc402d",
+   
+        "responseText": "hi",
+        "username": "pra",
+        "date": "Sun Mar 10 2019",
+        "profilepiclink": "https://lh5.googleusercontent.com/-5hgOQgkzQ90/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdWUduoFdDjYJGMY-bMaW5Hy_tzgA/s50-mo/photo.jpg"
+   
+}
+        var clicki=document.getElementById("click");
+        clicki.onclick=()=>{
+            window.fetch('http://localhost:3000/display/display-blog/', {
+  method: 'POST',
+  body: JSON.stringify(sendComment),
+}).then(()=>{
+  console.log("hi");
+});
+        }
+    }
+    </script>
+</body>
+</html>

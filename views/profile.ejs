@@ -1,0 +1,429 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Ultra" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Katibeh" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<link rel="stylesheet" href="/style.css">
+<body style="background-color:#efefef">
+  <!--dropdown-->
+  <ul id="dropdown1" class="dropdown-content">
+      
+     
+      <li><a href="/upload/write">Write</a></li>
+      <li class="divider"></li>
+      <li><a href="/auth/logout">Logout</a></li>
+    </ul>
+     <!--Nav Bar-->
+     <nav class="grey-text text-darken-4 hoverable pushpin navbar-fixed" style="z-index: 10;">
+            <div class="nav-wrapper container ">
+                                 
+                    <a href="/" class="brand-logo black-text text-darken-4 " style="font-family: 'Monoton', cursive; ">Echo <span class="grey-text text-lighten-3" style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" >|</span><span class=" grey-text text-darken-3 right" style="font-family: 'Katibeh', cursive;padding-top: 0.4rem;">  Blogs</span></a>
+                    <a href="" class="sidenav-trigger" data-target="mobile-links" >
+                      <i class="material-icons grey-text text-darken-3" style="font-size:34px;">menu</i>
+                  </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down grey-text text-darken-4">
+  
+                <li><a href="/explore"class="grey-text text-darken-4" >Explore</a></li>
+                
+                <li><a  class="dropdown-trigger" data-target="dropdown1" style="padding-top: 10px;"><img src="<%=user.thumbnail%>" class="circle " style="height:35px; width:35px;" ><i class="material-icons right">arrow_drop_down</i></a></li>
+              </ul>
+           
+           </div>
+           
+          </nav>
+          <ul class="sidenav" id="mobile-links">
+             
+                
+            
+                <li><astyle="padding-top: 10px;"><img src="<%=user.thumbnail%>" class="circle " style="height:35px; width:35px;" ></a></li>
+                
+                <li><a href="/explore"class="grey-text text-darken-4" >Explore</a></li>
+      <li><a href="/upload/write">Write</a></li>
+      <li class="divider"></li>
+      <li><a href="/auth/logout">Logout</a></li>
+    </ul>
+          
+        
+<!--end-->
+
+<!--profile photo and background photo-->
+<section class="section " style=" height:50vh; ">
+    <div style="height:100%; background: url('./img/beach.jpg') no-repeat center;background-size: cover; position: relative;">
+      
+          <img src="<%=user.thumbnail%>" class="materialboxed" style="height:100px;width:100px; border-radius:50%;  position:absolute;bottom: -10%;left:15%;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+     
+    
+    </div>
+</section>
+   
+    <section>
+         <!--tabs-->
+         <div class="row container ">
+            <div class="col s12 m3" style="padding:1% 2% 4% 2%;">
+                <div class=" grey-text text-darken-3">
+                <h5 class="grey-text text-darken-3" style="font-weight:bold;"><%=user.username%><a class="teal-text modal-trigger waves-effect secondary-content" href="#modal1" style="font-size:initial; font-weight:initial; border:1px teal solid; border-radius:5px; padding:1px 6px;">Edit</a></h5>
+                   <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+        <div class="row">
+          <form class="col s12" method="POST" action="/profile/personal">
+            <div class="row">
+                <div class="input-field col s10">
+                    <i class="material-icons prefix">person</i>
+                    <input id="pro" type="text" name="profession" data-length="15" class="validate" placeholder="Profession" value="<%=typeof(user.profession)=='undefined'?'':user.profession%>">
+                    <label for="pro"></label>
+                  </div>
+                <div class="input-field col s10">
+                    <i class="material-icons prefix">place</i>
+                    <input id="place" type="text" name="location" data-length="20" class="validate" placeholder="Location" value="<%=typeof(user.location)=='undefined'?'':user.location%>">
+                    <label for="place"></label>
+                  </div>
+              <div class="input-field col s10">
+                <i class="material-icons prefix">description</i>
+                <textarea id="icon_prefix2" name="description" data-length="100" class="materialize-textarea" placeholder="Description" ><%=typeof(user.description)=='undefined'?'':user.description%></textarea>
+                <label for="icon_prefix2"></label>
+              </div>
+            </div>
+            <div class="input-field col s10">
+              <button type="submit" class="btn">Save</button>
+            </div>
+          </form>
+                
+              </div>
+    </div>
+    <div class="modal-footer">
+        
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
+    </div>
+  </div>
+  <!---->
+                <p id="profession"> <span><i class="material-icons">person</i></span>
+                    <%=user.profession%></p>
+                <p id="location"> <span><i class="material-icons">place</i></span><%=user.location%></p>
+                <p id="description"> <span><i class="material-icons">description</i></span><%=user.description%></p>
+                <p id="googleid" style="display:none;"><%=user.googleId%></p>
+            </div>
+        </div>
+
+                <div  class="col s12 m8 card-panel white" style="min-height:40vh;padding:1% 2% 4% 2%;" > 
+                                             
+<div class="fixed-action-btn" style="left:75%;right: 25%; bottom: 9%;">
+        <a  class="btn-floating btn-large" style="background-color:rgba(212, 211, 211, 0.74)">
+          <i class="large material-icons grey-text text-lighten-5 teal darken-3">games</i>
+        </a>
+        <ul>
+          <li><a href="/upload/write" class="btn-floating  grey lighten-3"><i class="material-icons teal">mode_edit</i></a></li>
+          <li><a class="btn-floating  grey lighten-3"><i class="material-icons teal">format_quote</i></a></li>
+          <li><a href="/explore#search"  class="btn-floating grey lighten-3"><i class="material-icons teal">search</i></a></li>
+          <li><a  class="btn-floating  grey lighten-3"><i class="material-icons teal">attach_file</i></a></li>
+        </ul>
+      </div>  
+                    <div class="" style="min-height:50vh;">     
+                        <ul class="tabs " style="font-size: 2rem; font-weight: bold; box-shadow:0px 2px 0px rgb(211, 210, 210) ;">
+                          <li class="tab col s4 center" >
+                              <a href="#works" class="indigo-text text-darken-4 " id="worksli">Works</a>
+                          </li>
+                          <li class="tab col s4 center">
+                                  <a href="#favorites" class="indigo-text text-darken-4"  id="favoritesli">Favorites</a>
+                              </li>
+                              <li class="tab col s4 center" >
+                                      <a href="#subscriptions" id="subscriptionsli" class="indigo-text text-darken-4">Subscriptions</a>
+                                  </li>
+                      </ul>
+                      <div class="col s12" id="works" style="padding:8px 2px;" >
+                    
+                          <!--  WORK UPON THIS SECTION, ITS NOT A GOOD SCALABLE TECHNIQUE
+                       -->
+                      <%if(typeof(userblogs)=='undefined'){%>
+                        <div class="center" style="padding-top:10%;">
+                                          <img src="/img/emp-box.png" alt="" style="height:100px;">
+                                          <p class="grey-text" style="padding-top:2%;">Oops! Looks like your box is empty. Fill it with your amazing blogs!</p>
+                                      </div>
+                     <%}%>
+                      <%if(typeof(userblogs)!='undefined'){%>
+                       <%userblogs.forEach((resultblog)=>{%>
+              
+                         <div class="col s12 hoverable">
+                                      
+                                      <div class="card horizontal">
+                                        <div class="card-image valign-wrapper">
+                                            <img src="/uploads/<%=resultblog.bigPic.filename%>" class="responsive-img">
+                                        </div>
+                                        <div class="card-stacked">
+                                          <div class="card-title">  <h5 class="black-text truncate"  style="font-weight:bold;padding-left:10px;">
+                              <%=resultblog.title%></h5 > 
+                              </div>
+                                          <div class="card-content">
+                                            <p><%=resultblog.shortdescription%></p>
+                                          </div>
+                                          <div>
+                                            <a href="/display/display-blog/<%=resultblog._id%>" class="teal-text" style="padding:2px 8px">View blog</a>
+                                            <a href="#" class="teal-text" style="padding:2px 4px">View stats</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="divider"></div>
+                                    
+                      <%})}%>
+                      </div>
+                      <div class="col s12" id="favorites">
+                              <!--full width of its parent tag-->
+                              
+                          </div>
+                          <div class="col s12" id="subscriptions">
+                                <!--full width of its parent tag-->
+                       
+                                <ul class="collection" style="border:none;" id="subscription-collection" >
+                                  
+                           <!--        <li class="collection-item avatar">
+                                      <img src="/img/login-photo.jpg" alt="" class="circle">
+                                      <span class="title">Title</span>
+                                      <p>First Line <br>
+                                         Second Line
+                                      </p>
+                                      <a href="#!" class="secondary-content waves-effect " style="border:1px teal solid; padding:3px 6px;border-radius:5px;">Follow</a>
+                                    </li>
+                              --> 
+                                  </ul>
+                            </div>
+          
+                  </div>
+         </div>
+        
+    </div>
+</section>
+
+
+<script>
+window.onload=()=>{
+  let subscriptionsli=document.getElementById('subscriptionsli');
+  subscriptionsli.onclick=()=>{
+  
+    let xmlreq=new XMLHttpRequest();
+   // console.log('http://localhost:3000/profile/subscriptions/'+document.getElementById('googleid').innerHTML)
+    xmlreq.open("GET",'http://localhost:3000/profile/subscriptions/'+document.getElementById('googleid').innerHTML,true);
+    xmlreq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xmlreq.onreadystatechange=()=>{
+    
+      if(xmlreq.readyState==4&&xmlreq.status==200){
+      
+        let subscriptiondivs=(JSON.parse(xmlreq.responseText));
+       // console.log(subscriptiondivs)
+        let subscriptionhtml=document.getElementById('subscriptions');
+       // console.log(subscriptiondivs.length)
+        if(subscriptiondivs.length==0){
+          subscriptionhtml.innerHTML=`<div class="center" style="padding-top:10%;">
+                            <img src="/img/emp-subscription.png" alt="" style="height:100px;">
+                            <p class="grey-text" style="padding-top:2%;">Follow someone you can identify with</p>
+                        </div>`
+        }
+        else{
+         
+          let subscription_list_html=document.getElementById('subscription-collection')
+          subscription_list_html.innerHTML=''
+          subscriptiondivs.forEach((sub)=>{
+           // console.log(sub)
+            subscription_list_html.innerHTML+=` <li class="collection-item avatar">
+                                      <img src=${sub.thumbnail} alt="" class="circle">
+                                      <span class="title">${sub.username}</span>
+                                      <p>${sub.followers.length} Followers <br>
+                                         
+                                      </p>
+                                    
+                                      </li> 
+                                       <div class='divider'></div> `
+      
+          })
+
+
+        }
+
+      }
+    }
+    xmlreq.send()
+  }
+ 
+
+
+
+
+//favorites
+let favoriteli=document.getElementById('favoritesli');
+  favoriteli.onclick=()=>{
+    let xmlf=new XMLHttpRequest();
+   // console.log('http://localhost:3000/profile/favorites/'+document.getElementById('googleid').innerHTML)
+    xmlf.open("GET",'http://localhost:3000/profile/favorites/'+document.getElementById('googleid').innerHTML,true);
+    xmlf.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xmlf.onreadystatechange=()=>{
+      if(xmlf.readyState==4&&xmlf.status==200){
+        let favoritedivs=JSON.parse(xmlf.responseText);
+        let favoritehtml=document.getElementById('favorites');
+        if(favoritedivs.length==0){
+          favoritehtml.innerHTML=`<div class="center" style="padding-top:10%;">
+                                    <img src="/img/emp-list.png" alt="">
+                                    <p class="grey-text " style="padding-top:2%;">No favorites yet? You might wanna keep searching.</p>
+                                </div>`
+        }
+        else{
+          favoritehtml.innerHTML=''
+          favoritedivs.forEach((resultblog)=>{
+
+            favoritehtml.innerHTML+=` <div class="col s12 hoverable" style="padding:8px 2px;">
+                        
+                        <div class="card horizontal">
+                          <div class="card-image valign-wrapper">
+                              <img src="/uploads/${resultblog.bigPic.filename}" class="responsive-img">
+                          </div>
+                          <div class="card-stacked">
+                            <div class="card-title">  <h5 class="black-text truncate"  style="font-weight:bold;padding-left:10px;">
+                ${resultblog.title}    </h5 > 
+                </div>
+                            <div class="card-content">
+                              <p>${resultblog.shortdescription}</p>
+                            </div>
+                            <div>
+                              <a href="/display/display-blog/${resultblog._id}" class="teal-text" style="padding:2px 8px">View blog</a>
+                             <!----work upon this, removing from favorites--->
+                             
+                              <a href="#" class="teal-text" style="padding:2px 8px">Remove from favorites</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="divider"></div>
+                      `
+      
+          })
+
+
+        }
+
+      }
+    }
+    xmlf.send()
+  }
+ 
+
+let worksli=document.getElementById('worksli');
+  worksli.onpageshow=()=>{
+    let xml=new XMLHttpRequest();
+   // console.log('http://localhost:3000/profile/works/'+document.getElementById('googleid').innerHTML)
+    xml.open("GET",'http://localhost:3000/profile/works/'+document.getElementById('googleid').innerHTML,true);
+    xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xml.onreadystatechange=()=>{
+      if(xml.readyState==4&&xml.status==200){
+        let workdivs=JSON.parse(xml.responseText);
+        let workhtml=document.getElementById('works');
+        if(workdivs.length==0){
+          workhtml.innerHTML=`<div class="center" style="padding-top:10%;">
+                            <img src="/img/emp-box.png" alt="" style="height:100px;">
+                            <p class="grey-text" style="padding-top:2%;">Oops! Looks like your box is empty. Fill it with your amazing blogs!</p>
+                        </div>`
+        }
+        else{
+          workhtml.innerHTML=''
+          workdivs.forEach((resultblog)=>{
+
+            workhtml.innerHTML+=` <div class="col s12 hoverable" >
+                        
+                        <div class="card horizontal">
+                          <div class="card-image valign-wrapper">
+                              <img src="/uploads/${resultblog.bigPic.filename}" class="responsive-img">
+                          </div>
+                          <div class="card-stacked">
+                            <div class="card-title">  <h5 class="black-text truncate"  style="font-weight:bold;padding-left:10px;">
+                ${resultblog.title}    </h5 > 
+                </div>
+                            <div class="card-content">
+                              <p>${resultblog.shortdescription}</p>
+                            </div>
+                            <div>
+                              <a href="/display/display-blog/${resultblog._id}" class="teal-text" style="padding:2px 8px">View blog</a>
+                              <a href="#" class="teal-text" style="padding:2px 4px">View stats</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="divider"></div>
+                      `
+      
+          })
+
+
+        }
+
+      }
+    }
+    xml.send()
+  }
+ 
+}
+
+</script>
+
+
+
+
+
+
+    
+
+  <!--script-->
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.pushpin');
+          var instances = M.Pushpin.init(elems,{});
+          var el=document.querySelectorAll(".tabs");
+
+          var instance = M.Tabs.init(el,{});
+        });
+        
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: 'top',
+      hoverEnabled: false
+    });
+  });
+        document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems,{});
+  });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, {});
+       
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.tooltipped');
+        var instances = M.Tooltip.init(elems, {});
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, {});
+       
+      
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, {});
+  });
+      </script>
+</body>
+</html>
+

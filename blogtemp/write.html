@@ -1,0 +1,198 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Ultra" rel="stylesheet"> 
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Katibeh" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+</head>
+<link rel="stylesheet" href="./style.css">
+<style>
+        .ql-out-bottom {
+    visibility: initial !important;
+  }
+     
+      </style>
+<body >
+
+     <!--Nav Bar-->
+     <nav class="grey-text text-darken-4 hoverable  navbar-fixed" style="z-index: 10;">
+            <div class="nav-wrapper container ">
+                                 
+                    <a href="#" class="brand-logo black-text text-darken-4 " style="font-family: 'Monoton', cursive; padding-right: 1rem;">Echo<span class="grey-text text-lighten-3" style="padding-right:0.4rem;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" >|</span><span class=" grey-text text-darken-3 right" style="font-family: 'Katibeh', cursive;">Blogs</span></a>
+                    <a href="" class="sidenav-trigger" data-target="mobile-links" >
+                      <i class="material-icons grey-text text-darken-3" style="font-size:34px;">menu</i>
+                  </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down grey-text text-darken-4">
+                      
+                <li><a href="#" class="grey-text text-darken-4">Home</a></li>
+                <li><a href="#"class="grey-text text-darken-4" >Explore</a></li>
+                <li   class="active"><a href="#" class="grey-text text-darken-4">Login</a></li>
+              </ul>
+           
+           </div>
+           
+          </nav>
+          <ul class="sidenav" id="mobile-links">
+            <li ><a href="" >Home</a></li>
+            <li><a href="">Explore</a></li>
+            <li><a  href="collapsible.html">Login</a></li>
+    </ul>
+          
+        
+<!--end-->
+
+
+<!--welcome message-->
+<section class="section row  center grey lighten-4" >
+    <div class="col s12  center container" >
+                
+                            <img src="./img/detective.png" >
+                            <img src="./img/pi.png" >
+                            <img src="./img/internet.png" >
+                                <img src="./img/mind.png" >
+               
+                  
+                   
+            
+    </div>
+    <div class="col s12 grey-text text-darken-2 container" >
+    <h5 style="font-weight:bold;">Give your creativity a direction</h5>
+    </div>
+</section>
+
+
+
+
+<!--writing post-->
+<section class="section container">
+    <p><span class="grey-text text-darken-2">Kindly read our <span class="teal-text"> <a class="teal-text modal-trigger waves-effect" href="#modal1" style="border:1px teal solid; border-radius:5px; padding:2px 4px;">Note</a></span> before proceeding</span> </p>
+      <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+        <div class="row">
+         
+                <ul>
+                  <li></li>
+                </ul>
+              </div>
+    </div>
+    <div class="modal-footer">
+      
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Back</a>
+    </div>
+  </div>
+  <br>
+    <div class="divider"></div>
+    <h5 class="grey-text text-lighten-1 padding-top:2%;"><span>Begin writing...</span>   </h5>
+    
+
+    <!--title and description-->
+    <div class="row">
+      <form  enctype="multipart/form-data" class="col s12" id="blogForm">
+        <div class="input-field col s12">
+        <button type="submit"style="border:1px teal solid; border-radius:5px;" class="btn white teal-text secondary-content">Post</button>
+      </div>   
+        <div class="row">
+              <div class="input-field col s12">
+                    <i class="material-icons prefix teal-text">mode_edit</i>
+                <input placeholder="Title of your story..." id="title" type="text" name="title-of-blog" class="validate">
+                <label for="title"></label>
+              </div>
+              <div class="input-field col s12">
+                    <i class="material-icons prefix teal-text">chat</i>
+                    <textarea name="description-of-blog" id="text-area" class="materialize-textarea" placeholder="A short description in about 100 words..."></textarea>
+                    <label for="text-area"></label>
+                  </div>
+                  
+            </div>
+        <!--end-->
+  <div>
+   <div class="file-field input-field">
+             
+        <div class="btn white teal-text" style="border:1px teal solid; border-radius:5px; ">
+          <span>Upload Image</span>
+          <input name="myimage" type="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="input-field col s12">
+      <textarea name="hiddenArea-blog"  class="materialize-textarea"  style="display:none;" id="hiddenArea" ></textarea>
+    </div>
+    <div class="secondary-content"><a class="teal-text btn white waves-effect" style="border:1px teal solid; border-radius:5px; " id="save-draft" >Save</a></div>
+      <!--quill-->
+      
+      
+      <div class="section container">
+        <div id="toolbar"></div>
+        <div id="editor">
+        </div>
+       
+      </div>
+   
+  </div>
+
+</form>
+</div>
+</section>
+
+
+
+
+
+<!--script-->
+<script>
+       
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, {});
+       
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, {});
+        
+      
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.tooltipped');
+        var instances = M.Tooltip.init(elems, {});
+      });
+    
+      </script>
+      <script>
+      window.onload=()=>{
+        var options = {
+ 
+ modules: {
+   toolbar:[ ['bold','italic','underline','link','strike'],['blockquote',
+'code-block',],[{list:'ordered'},{list:'bullet'}],[{script:'sub'},{script:'super'}],[{align:[]}]]
+ },
+ placeholder: 'Compose an epic...',
+
+ theme: 'snow'
+};
+var editor = new Quill('#editor', options);
+const save=document.getElementById('save-draft');
+save.onclick=()=>{
+  document.getElementById('hiddenArea').innerHTML=document.querySelector('.ql-editor').innerHTML;
+  //document.querySelector('.ql-editor').innerHTML;
+}
+
+      }
+      </script>
+</body>
+</html>
