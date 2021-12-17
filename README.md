@@ -1,6 +1,10 @@
 # Echo-Blog
 This is a Medium Clone WebApp. It provides features such as creating profile, editing profile, viewing other profiles, writing blogs, adding likes to other blogs and posting comments.
 
+## Webapp
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/44807945/146546739-dcefe697-9c5b-487c-91db-18ef163e3af6.gif)
+
 
 ## Techstack
 
